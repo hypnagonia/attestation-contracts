@@ -15,4 +15,5 @@ module.exports = async function (deployer) {
 
     const m = await ModulesRegistry.deployed()
     await m.registerModule(SnapsModule.address)
+    
 };

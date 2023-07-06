@@ -5,14 +5,14 @@ const MasterRegistry = artifacts.require("MasterRegistry");
 const ModulesRegistry = artifacts.require("ModulesRegistry");
 const SchemasRegistry = artifacts.require("SchemasRegistry");
 const AttestorsRegistry = artifacts.require("AttestorsRegistry");
+const { schemas } = require('../src/schemas')
+const parseLogs = require('../src/utils/parseLogs')
 
 
 module.exports = async function (deployer) {
-
     const modules = [SnapsAttestor, SnapsModule, MasterRegistry, ModulesRegistry, SchemasRegistry, AttestorsRegistry]
 
     console.table(modules.map(m => ({ name: m._json.contractName, address: m.address })))
-
 
     console.log('Registered Modules')
 

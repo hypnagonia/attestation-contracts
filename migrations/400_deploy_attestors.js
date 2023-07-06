@@ -6,7 +6,8 @@ const ModulesRegistry = artifacts.require("ModulesRegistry");
 const SchemasRegistry = artifacts.require("SchemasRegistry");
 const AttestorsRegistry = artifacts.require("AttestorsRegistry");
 
-module.exports = async function (deployer) {  
+
+module.exports = async function (deployer) {
     await deployer.deploy(
         SnapsAttestor,
         MasterRegistry.address,
