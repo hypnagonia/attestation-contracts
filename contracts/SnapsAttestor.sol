@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import "./base/Attestor.sol";
 
-contract ExampleAttestor is Attestor {
+contract SnapsAttestor is Attestor {
     error AlreadyAttested();
     error ModuleFailed(address module);
 
