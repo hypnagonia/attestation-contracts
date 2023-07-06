@@ -1,0 +1,13 @@
+{
+  "name": "metamask-reputation-contracts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.2",
+    "@truffle/hdwallet-provider": "^2.1.12",
+    "dotenv": "^16.3.1",
+    "solc": "^0.8.20",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}
