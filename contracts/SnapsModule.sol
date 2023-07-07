@@ -17,6 +17,6 @@ contract SnapsModule is Module {
     ) external pure override returns (Attestation memory, bytes memory) {
         // implement logic here
         Attestation memory a = attestation;
-        return (a, data);
+        return (a, bytes(""));
     }
 }

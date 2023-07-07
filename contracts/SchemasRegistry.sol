@@ -6,6 +6,7 @@ import {AttestorsRegistry} from "./AttestorsRegistry.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import "./interfaces/ISchemasRegistry.sol";
 
+// todo rights to create
 contract SchemasRegistry is ISchemasRegistry, Ownable {
     AttestorsRegistry private $attestorsRegistry;
 
