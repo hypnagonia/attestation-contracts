@@ -25,5 +25,3 @@ module.exports = async function (deployer) {
     console.log({ isSnapModuleRegistered, isSnapsAttestorRegistered })
     
 }
-
-// 0x44bf34e1425a6ea7ce9bf82f8f6556394f39192bfde6e07452bce02a6a3f87ae

@@ -13,6 +13,7 @@ module.exports = async function (deployer) {
         MasterRegistry.address,
         SchemasRegistry.address,
         ModulesRegistry.address,
+        // modules to validate 
         [SnapsModule.address]
     );
 
