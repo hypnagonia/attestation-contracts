@@ -116,7 +116,9 @@ contract MasterRegistry is IMasterRegistry, Ownable {
             revert OnlyAttesteeOrAttestor();
 
         $attestations[attestationId].revoked = true;
-        $attestations[attestationId].attestationData = "";
+        
+        delete $attestations[attestationId].attestationData;
+        //$attestations[attestationId].attestationData = "";
 
         emit AttestationRevoked(attestationId);
     }
@@ -132,7 +134,9 @@ contract MasterRegistry is IMasterRegistry, Ownable {
                 revert OnlyAttesteeOrAttestor();
 
             $attestations[attestationIds[i]].revoked = true;
-            $attestations[attestationIds[i]].attestationData = "";
+
+            delete $attestations[attestationIds[i]].attestationData;
+            // $attestations[attestationIds[i]].attestationData = "";
 
             unchecked {
                 ++i;

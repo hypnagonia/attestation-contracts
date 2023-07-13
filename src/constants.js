@@ -1,0 +1,5 @@
+const empty32ByteHexString = '0x0000000000000000000000000000000000000000000000000000000000000000'
+
+module.exports = {
+    empty32ByteHexString
+}

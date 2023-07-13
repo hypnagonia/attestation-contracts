@@ -7,10 +7,14 @@ const SchemasRegistry = artifacts.require("SchemasRegistry");
 const AttestorsRegistry = artifacts.require("AttestorsRegistry");
 const { schemas } = require('../src/schemas')
 const parseLogs = require('../src/utils/parseLogs')
-
+const KarmaSnapsRegistryModule = artifacts.require("KarmaSnapsRegistryModule")
+const KarmaAttestorV1 = artifacts.require("KarmaAttestorV1")
 
 module.exports = async function (deployer) {
-    const modules = [SnapsAttestor, SnapsModule, MasterRegistry, ModulesRegistry, SchemasRegistry, AttestorsRegistry]
+    const modules = [
+        MasterRegistry, ModulesRegistry, SchemasRegistry, AttestorsRegistry,
+        KarmaSnapsRegistryModule, KarmaAttestorV1
+    ]
 
     console.table(modules.map(m => ({ name: m._json.contractName, address: m.address })))
 
@@ -23,5 +27,5 @@ module.exports = async function (deployer) {
     const isSnapsAttestorRegistered = await attestorsRegistry.isRegistered(SnapsAttestor.address)
 
     console.log({ isSnapModuleRegistered, isSnapsAttestorRegistered })
-    
+
 }

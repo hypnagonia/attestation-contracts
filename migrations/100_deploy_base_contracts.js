@@ -6,9 +6,13 @@ const AttestorsRegistry = artifacts.require("AttestorsRegistry");
 const { schemas } = require('../src/schemas')
 
 module.exports = async function (deployer) {
-    await deployer.deploy(MasterRegistry)
     await deployer.deploy(SchemasRegistry)
-
-    await deployer.deploy(AttestorsRegistry, SchemasRegistry.address)
-    await deployer.deploy(ModulesRegistry)
+    
+    await Promise.all(
+        [
+            deployer.deploy(MasterRegistry),
+            deployer.deploy(AttestorsRegistry, SchemasRegistry.address),
+            deployer.deploy(ModulesRegistry)
+        ]
+    )
 };

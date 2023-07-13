@@ -26,20 +26,28 @@ contract SchemasRegistry is ISchemasRegistry, Ownable {
 
     function registerSchema(
         address attestor,
-        string memory schema,
-        bool onChain
+        string[] memory schema,
+        bool onChain,
+        string memory description
     ) external {
         if (address($attestorsRegistry) == address(0))
             revert AttestorsRegistryNotSet();
 
+        string memory schemas = "";
+        for (uint i = 0; i < schema.length; i++) {
+            // todo less memory
+            schemas = string(abi.encodePacked(schemas, schema[i]));
+        }
+
         Schema memory newSchema = Schema({
-            schemaId: keccak256(abi.encodePacked(msg.sender, attestor, schema)),
+            schemaId: keccak256(abi.encodePacked(msg.sender, attestor, schemas)),
             schemaNumber: ++schemaCount,
             creator: msg.sender,
             attestor: attestor,
             isPrivate: false,
             onChainAttestation: onChain,
-            schema: schema
+            schema: schema,
+            description: description
         });
 
         if ($schemas[newSchema.schemaId].schemaId != bytes32(0))

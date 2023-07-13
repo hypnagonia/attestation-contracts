@@ -6,7 +6,7 @@ import {Attestor} from "./base/Attestor.sol";
 import {SchemasRegistry} from "./SchemasRegistry.sol";
 import "./interfaces/IAttestorsRegistry.sol";
 
-// todo rights to create
+// todo rights to create?
 contract AttestorsRegistry is IAttestorsRegistry {
     SchemasRegistry public $schemasRegistry;
 

@@ -10,7 +10,7 @@ struct EIP712Signature {
 struct UpdateRequest {
     bytes32 attestationId;
     uint64 expirationDate;
-    bytes attestationData;
+    string[] attestationData;
 }
 
 struct AttestationRequest {
@@ -19,7 +19,7 @@ struct AttestationRequest {
     address attestor; // The Attestor smart contract address.
     address attestee; // The Attestee address (receiving attestation).
     uint64 expirationDate; // The expiration date of the attestation.
-    bytes attestationData; // The attestation data.
+    string[] attestationData; // The attestation data.
 }
 
 struct Attestation {
@@ -34,7 +34,8 @@ struct Attestation {
     uint64 expirationDate; // The expiration date of the attestation.
     bool isPrivate; // Whether the attestation is private or public.
     bool revoked; // Whether the attestation is revoked or not.
-    bytes attestationData; // The attestation data.
+    // 
+    string[] attestationData; // The attestation data.
 }
 
 struct Schema {
@@ -44,5 +45,6 @@ struct Schema {
     address attestor; // The address of the Attestor smart contract.
     bool isPrivate; // Whether the schema is private or public.
     bool onChainAttestation; // Whether the schema requires on-chain attestation.
-    string schema; // The schema string.
+    string[] schema; // The schema string.
+    string description;
 }
