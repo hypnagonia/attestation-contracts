@@ -1,6 +1,3 @@
-const SnapsModule = artifacts.require("SnapsModule");
-const SnapsAttestor = artifacts.require("SnapsAttestor");
-
 const MasterRegistry = artifacts.require("MasterRegistry");
 const ModulesRegistry = artifacts.require("ModulesRegistry");
 const SchemasRegistry = artifacts.require("SchemasRegistry");
@@ -18,6 +15,7 @@ module.exports = async function (deployer) {
 
     console.table(modules.map(m => ({ name: m._json.contractName, address: m.address })))
 
+    /*
     console.log('Registered Modules')
 
     const modulesRegistry = await ModulesRegistry.deployed()
@@ -27,5 +25,6 @@ module.exports = async function (deployer) {
     const isSnapsAttestorRegistered = await attestorsRegistry.isRegistered(SnapsAttestor.address)
 
     console.log({ isSnapModuleRegistered, isSnapsAttestorRegistered })
+    */
 
 }

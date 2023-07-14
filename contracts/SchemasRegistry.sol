@@ -26,7 +26,7 @@ contract SchemasRegistry is ISchemasRegistry, Ownable {
 
     function registerSchema(
         address attestor,
-        string[] memory schema,
+        bytes[] memory schema,
         bool onChain,
         string memory description
     ) external {

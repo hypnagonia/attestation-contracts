@@ -19,7 +19,7 @@ module.exports = async function (deployer, network, accounts) {
     await sc.setAttestorsRegistry(AttestorsRegistry.address)
     console.log('SchemasRegistry setAttestorsRegistry ok')
 
-    const schemaFields = ["snapChecksum"]
+    const schemaFields = ["snapChecksum"].map(e => ethers.toUtf8Bytes(e))
     const res = await sc.registerSchema(KarmaAttestorV1.address, schemaFields, true, "this is test schema")
 
     const schemaId = res.logs[0].args[0][0]
@@ -33,7 +33,7 @@ module.exports = async function (deployer, network, accounts) {
     const extraData = web3.utils.asciiToHex("")
 
     // check schemaFields
-    const attestationData = ["shasum"]
+    const attestationData = ["shasum"].map(e => ethers.toUtf8Bytes(e))
     // const sa = await SnapsAttestor.deployed()
 
 

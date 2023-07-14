@@ -12,7 +12,7 @@ contract KarmaSnapsRegistryModule is Module {
     KeyValueParser.KeyValueMap private keyValueMap;
 
     SnapsRegistry public $snapsRegistry;
-    string constant SNAP_CHECKSUM = "snapChecksum";
+    uint8 constant CHECKSUM = 0;
 
     error snapChecksumNotFound();
     error InvalidSnapsRegistry();
@@ -35,9 +35,9 @@ contract KarmaSnapsRegistryModule is Module {
         uint256 value,
         bytes memory data
     ) external override returns (Attestation memory, bytes memory) {
-        Schema memory schema = $schemasRegistry.getSchema(attestation.schemaId);
-        keyValueMap.parseKeyValue(schema.schema, attestation.attestationData);
-        string memory checksum = keyValueMap.getValueByKey(SNAP_CHECKSUM);
+        // Schema memory schema = $schemasRegistry.getSchema(attestation.schemaId);
+        
+        string memory checksum = string(abi.encodePacked(attestation.attestationData[CHECKSUM]));
 
         if (!$snapsRegistry.isSnapVersionAdded(checksum)) {
             revert snapChecksumNotFound();
