@@ -1,5 +1,3 @@
-const SnapsAttestor = artifacts.require("SnapsAttestor");
-const SnapsModule = artifacts.require("SnapsModule");
 
 const MasterRegistry = artifacts.require("MasterRegistry");
 const ModulesRegistry = artifacts.require("ModulesRegistry");
@@ -15,7 +13,6 @@ module.exports = async function (deployer) {
         MasterRegistry.address,
         SchemasRegistry.address,
         ModulesRegistry.address,
-        // validation modules
         [
             KarmaSnapsRegistryModule.address,
             KarmaDIDVerificationModule.address

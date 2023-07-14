@@ -23,7 +23,9 @@ contract KarmaDIDVerificationModule is Module {
         uint256 value,
         bytes memory data
     ) external override returns (Attestation memory, bytes memory) {
-       
+        
+        // did
+        
         return (attestation, bytes(""));
     }
 }

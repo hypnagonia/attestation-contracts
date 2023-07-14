@@ -22,12 +22,10 @@ module.exports = async function (deployer, network, accounts) {
     const schemaFields = ["snapChecksum"]
     const res = await sc.registerSchema(KarmaAttestorV1.address, schemaFields, true, "this is test schema")
 
-    // console.log(JSON.stringify(res.logs))
     const schemaId = res.logs[0].args[0][0]
     console.log({ schemaId })
 
     console.log('SchemasRegistry registerSchema ok')
-
 
     // deploy test attestation
     const a = await KarmaAttestorV1.deployed()
