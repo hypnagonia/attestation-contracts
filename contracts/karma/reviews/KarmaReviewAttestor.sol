@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import "../../base/Attestor.sol";
 
-contract KarmaAuditAttestor is Attestor {
+contract KarmaReviewAttestor is Attestor {
     error AlreadyAttested();
     error ModuleFailed(address module);
 

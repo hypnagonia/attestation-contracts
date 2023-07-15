@@ -3,14 +3,10 @@ pragma solidity ^0.8.20;
 
 import "../../base/Module.sol";
 
-import "../../libs/KeyValueParser.sol";
 import {Schema} from "../../libs/Structs.sol";
 import {SnapsRegistry} from "../../metamask/SnapsRegistry.sol";
 
 contract KarmaSnapsRegistryModule is Module {
-    using KeyValueParser for KeyValueParser.KeyValueMap;
-    KeyValueParser.KeyValueMap private keyValueMap;
-
     SnapsRegistry public $snapsRegistry;
     uint8 constant CHECKSUM = 0;
 

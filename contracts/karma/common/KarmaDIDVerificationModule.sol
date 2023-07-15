@@ -2,14 +2,10 @@
 pragma solidity ^0.8.20;
 
 import "../../base/Module.sol";
-import "../../libs/KeyValueParser.sol";
 import {Schema} from "../../libs/Structs.sol";
 
 
 contract KarmaDIDVerificationModule is Module {
-    using KeyValueParser for KeyValueParser.KeyValueMap;
-    KeyValueParser.KeyValueMap private keyValueMap;
-
     constructor(
         MasterRegistry _masterRegistry,
         SchemasRegistry _schemasRegistry,

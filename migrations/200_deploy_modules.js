@@ -5,13 +5,8 @@ const AttestorsRegistry = artifacts.require("AttestorsRegistry");
 const KarmaSnapsRegistryModule = artifacts.require("KarmaSnapsRegistryModule")
 const KarmaDIDVerificationModule = artifacts.require("KarmaDIDVerificationModule")
 const SnapsRegistry = artifacts.require("SnapsRegistry")
-const KeyValueParser = artifacts.require("libs/KeyValueParser");
 
 module.exports = async function (deployer) {
-    await deployer.deploy(KeyValueParser)
-    await deployer.link(KeyValueParser, KarmaSnapsRegistryModule)
-    await deployer.link(KeyValueParser, KarmaDIDVerificationModule)
-
     await deployer.deploy(
         KarmaSnapsRegistryModule,
         MasterRegistry.address,

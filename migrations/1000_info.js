@@ -5,12 +5,21 @@ const AttestorsRegistry = artifacts.require("AttestorsRegistry");
 const { schemas } = require('../src/schemas')
 const parseLogs = require('../src/utils/parseLogs')
 const KarmaSnapsRegistryModule = artifacts.require("KarmaSnapsRegistryModule")
-const KarmaAttestorV1 = artifacts.require("KarmaAttestorV1")
+// const KarmaAttestorV1 = artifacts.require("KarmaAttestorV1")
+
+const KarmaAuditAttestor = artifacts.require("KarmaAuditAttestor")
+const KarmaAuditApprovalAttestor = artifacts.require("KarmaAuditApprovalAttestor")
+const KarmaReviewApprovalAttestor = artifacts.require("KarmaReviewApprovalAttestor")
+const KarmaReviewAttestor = artifacts.require("KarmaReviewAttestor")
 
 module.exports = async function (deployer) {
     const modules = [
         MasterRegistry, ModulesRegistry, SchemasRegistry, AttestorsRegistry,
-        KarmaSnapsRegistryModule, KarmaAttestorV1
+        KarmaSnapsRegistryModule,
+        KarmaAuditAttestor,
+        KarmaAuditApprovalAttestor,
+        KarmaReviewApprovalAttestor,
+        KarmaReviewAttestor,
     ]
 
     console.table(modules.map(m => ({ name: m._json.contractName, address: m.address })))
